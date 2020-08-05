@@ -7,8 +7,8 @@ public class Rulebook {
 
     private Rulebook() {}
 
-    public static boolean queryRule(StateManager gameManager, Supplier<Rule> ruleSupplier) {
-        return ruleSupplier.get().isValid(gameManager);
+    public static boolean queryRule(StateManager gameState, Supplier<Rule> ruleSupplier) {
+        return ruleSupplier.get().isValid(gameState);
     }
 
 }
