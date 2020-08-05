@@ -8,7 +8,7 @@ public class StateManager {
     private final Player chaos;
     private final Player order;
     private String currentPlayer = "Order";
-    private Point currentPoint;
+    private Point currentPoint = null;
     private int turn;
 
     public StateManager(int size){
@@ -27,12 +27,14 @@ public class StateManager {
     public int getTurn() { return turn; }
 
     public void newTurn(Point newPoint, Piece newPiece){
-        currentPoint = newPoint;
+        setCurrentPoint(newPoint);
         board.setCell(newPoint, newPiece);
         currentPlayer = getOpponentPlayerName();
         turn ++;
     }
 
     public Point getCurrentPoint() { return currentPoint;}
+
+    public void setCurrentPoint(Point newPoint) { currentPoint = newPoint;}
 
 }

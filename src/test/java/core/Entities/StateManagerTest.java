@@ -58,8 +58,14 @@ public class StateManagerTest {
     }
 
     @Test
-    public void testCurrentPoint() {
+    public void testGetCurrentPoint() {
         gameState.newTurn(new Point(2, 3), Piece.x);
         assertEquals(new Point(2,3),gameState.getCurrentPoint());
+    }
+
+    @Test
+    public void testSetCurrentPoint() {
+        gameState.setCurrentPoint(new Point(5,5));
+        assertEquals(new Point(5,5),gameState.getCurrentPoint());
     }
 }
