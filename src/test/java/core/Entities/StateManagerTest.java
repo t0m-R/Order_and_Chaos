@@ -56,4 +56,10 @@ public class StateManagerTest {
         assertEquals(2,gameState.getTurn());
         assertEquals(oppositePlayer,gameState.getPlayer().getName());
     }
+
+    @Test
+    public void testCurrentPoint() {
+        gameState.newTurn(new Point(2, 3), Piece.x);
+        assertEquals(new Point(2,3),gameState.getCurrentPoint());
+    }
 }
