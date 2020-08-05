@@ -11,14 +11,6 @@ public class StateManagerTest {
 
     private final StateManager gameState = new StateManager(6);
 
-    private void fillBoard() {
-        Board board = gameState.getBoard();
-        board.setCell(new Point(0,0), Piece.x);
-        board.setCell(new Point(1,0), Piece.o);
-        board.setCell(new Point(0,1), Piece.x);
-        board.setCell(new Point(1,1), Piece.o);
-    }
-
     @Test
     public void testFirstPlayer() {
         Player firstPlayer = gameState.getPlayer();
@@ -28,10 +20,9 @@ public class StateManagerTest {
     @Test
     public void testGetBoard() {
         Board empty = gameState.getBoard();
-        fillBoard();
+        gameState.getBoard().setCell(new Point(0,0), Piece.x);
         Board filled = gameState.getBoard();
         assertNotEquals(empty,filled);
-
     }
 
     @Test
