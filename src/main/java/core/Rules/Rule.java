@@ -5,6 +5,6 @@ import core.Entities.StateManager;
 
 public interface Rule {
 
-    boolean isValid(StateManager manager);
+    boolean isValid(StateManager gameState);
 
 }
