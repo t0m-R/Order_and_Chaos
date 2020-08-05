@@ -41,4 +41,19 @@ public class StateManagerTest {
 
     }
 
+    @Test
+    public void testGetOppositePlayerName() {
+        String currentPlayer = gameState.getPlayer().getName();
+        String oppositePlayer = gameState.getOpponentPlayerName();
+        assertNotEquals(currentPlayer,oppositePlayer);
+        assertEquals(oppositePlayer,"Chaos");
+    }
+
+    @Test
+    public void testNewTurn() {
+        String oppositePlayer = gameState.getOpponentPlayerName();
+        gameState.newTurn(new Point(2, 3), Piece.x);
+        assertEquals(2,gameState.getTurn());
+        assertEquals(oppositePlayer,gameState.getPlayer().getName());
+    }
 }

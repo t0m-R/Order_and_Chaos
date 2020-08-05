@@ -1,5 +1,7 @@
 package core.Entities;
 
+import java.awt.Point;
+
 public class StateManager {
 
     private final Board board;
@@ -19,7 +21,15 @@ public class StateManager {
 
     public Player getPlayer() { return (order.getName().equals(currentPlayer)) ? order : chaos; }
 
+    public String getOpponentPlayerName() { return (currentPlayer).equals("Order") ? chaos.getName() : order.getName(); }
+
     public int getTurn() { return turn; }
+
+    public void newTurn(Point newPoint, Piece newPiece){
+        board.setCell(newPoint, newPiece);
+        currentPlayer = getOpponentPlayerName();
+        turn ++;
+    }
 
 
 }
