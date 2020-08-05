@@ -9,9 +9,13 @@ public class PlayerTest {
     @Test
     public void testName() {
         Player player = new Player("Marco");
-        assertEquals(player.getName(), "Tommaso");
         assertEquals(player.getName(), "Marco");
+    }
 
+    @Test
+    public void testDifferentName() {
+        Player player = new Player("Marco");
+        assertNotEquals(player.getName(), "Tommaso");
     }
 
 
