@@ -4,12 +4,20 @@ import org.junit.Test;
 
 import java.awt.Point;
 import java.util.Iterator;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class BoardTest {
 
     private final Board board = new Board(6);
+
+    private void fillRow(int index, Piece p) {
+        for (int i=0;i<6;i++){
+            board.setCell(new Point(index,i), p);
+        }
+    }
 
     @Test
     public void testSize(){
@@ -60,6 +68,15 @@ public class BoardTest {
         assertFalse(board.isValid(new Point(-1,6)));
     }
 
+    @Test
+    public void testGetRow() {
+        fillRow(0,Piece.x);
+        fillRow(1,Piece.o);
+        Stream<Cell> firstRow = board.getRow(0);
+        Stream<Cell> secondRow = board.getRow(1);
+        assertTrue(firstRow.anyMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.x)));
+        assertFalse(secondRow.noneMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.o)));
+    }
 
 
 

@@ -1,7 +1,9 @@
 package core.Entities;
 
 import java.awt.Point;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.stream.Stream;
 
 public class Board implements Iterable<Cell>{
 
@@ -31,6 +33,9 @@ public class Board implements Iterable<Cell>{
         return ( 0 <= p.x && p.x < size) && ( 0 <= p.y && p.y < size);
     }
 
+    public Stream<Cell> getRow(int index){
+        return Arrays.stream(board).skip(0).limit(size).flatMap(x -> Arrays.stream(x).skip(index).limit(size));
+    }
 
     // Iterator Override
 
