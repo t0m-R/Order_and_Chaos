@@ -33,6 +33,10 @@ public class Board implements Iterable<Cell>{
         return ( 0 <= p.x && p.x < size) && ( 0 <= p.y && p.y < size);
     }
 
+    public Stream<Cell> getAllCells(){
+        return IntStream.range(0,board.length).mapToObj(i -> board[i][i]);
+    }
+
     public Stream<Cell> getRow(int index){
         return IntStream.range(0,board.length).mapToObj(i -> board[index][i]);    }
 
