@@ -3,6 +3,7 @@ package core.Entities;
 import java.awt.Point;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Board implements Iterable<Cell>{
@@ -41,6 +42,14 @@ public class Board implements Iterable<Cell>{
         return Arrays.stream(board).skip(index).limit(size-index).flatMap(x -> Arrays.stream(x).skip(0).limit(size));
     }
 
+    public Stream<Cell> getRightDiag(int x, int y){
+        return IntStream.range(x,board.length).mapToObj(i -> board[i][board.length-1-y-i]);
+    }
+
+    public Stream<Cell> getLeftDiag(int x, int y){
+        return     IntStream.range(x,board.length).mapToObj(i -> board[i+x][i+y]);
+
+    }
     // Iterator Override
 
     @Override

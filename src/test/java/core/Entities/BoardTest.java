@@ -19,6 +19,14 @@ public class BoardTest {
         }
     }
 
+    private void fillBoard(Piece p) {
+        for (int i=0;i<6;i++){
+            for (int j=0;j<6;j++){
+                board.setCell(new Point(i,j), p);
+            }
+        }
+    }
+
     @Test
     public void testSize(){
         assertEquals(6, board.getSize());
@@ -86,6 +94,28 @@ public class BoardTest {
         Stream<Cell> secondCol = board.getColumn(1);
         assertTrue(firstCol.anyMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.x)));
         assertFalse(secondCol.noneMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.o)));
+    }
+
+    @Test
+    public void testGetRightDiag() {
+        fillBoard(Piece.x);
+        Stream<Cell> rightDiag= board.getRightDiag(0,0);
+        Stream<Cell> rightDiagLower= board.getRightDiag(1,0);
+        Stream<Cell> rightDiagUpper= board.getRightDiag(0,1);
+        assertTrue(rightDiag.anyMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.x)));
+        assertTrue(rightDiagLower.anyMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.x)));
+        assertTrue(rightDiagUpper.anyMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.x)));
+    }
+
+    @Test
+    public void testGetLeftDiag() {
+        fillBoard(Piece.o);
+        Stream<Cell> rightDiag= board.getLeftDiag(0,0);
+        Stream<Cell> rightDiagLower= board.getLeftDiag(1,0);
+        Stream<Cell> rightDiagUpper= board.getLeftDiag(0,1);
+        assertTrue(rightDiag.anyMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.o)));
+        assertTrue(rightDiagLower.anyMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.o)));
+        assertTrue(rightDiagUpper.anyMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.o)));
     }
 
 
