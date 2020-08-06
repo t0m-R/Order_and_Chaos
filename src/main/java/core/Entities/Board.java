@@ -37,6 +37,10 @@ public class Board implements Iterable<Cell>{
         return Arrays.stream(board).skip(0).limit(size).flatMap(x -> Arrays.stream(x).skip(index).limit(size));
     }
 
+    public Stream<Cell> getColumn(int index){
+        return Arrays.stream(board).skip(index).limit(size-index).flatMap(x -> Arrays.stream(x).skip(0).limit(size));
+    }
+
     // Iterator Override
 
     @Override

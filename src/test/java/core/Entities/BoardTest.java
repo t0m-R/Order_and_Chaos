@@ -78,6 +78,15 @@ public class BoardTest {
         assertFalse(secondRow.noneMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.o)));
     }
 
+    @Test
+    public void testGetColumn() {
+        fillRow(0,Piece.x);
+        fillRow(1,Piece.o);
+        Stream<Cell> firstCol = board.getColumn(0);
+        Stream<Cell> secondCol = board.getColumn(1);
+        assertTrue(firstCol.anyMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.x)));
+        assertFalse(secondCol.noneMatch(x-> board.getCell(x.getCoordinates()).hasThisPiece(Piece.o)));
+    }
 
 
 }
