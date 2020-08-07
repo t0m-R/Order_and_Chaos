@@ -13,6 +13,9 @@ public class ChaosWinRule implements Rule{
     }
 
     public boolean isFull(Board board){
-        return board.getAllCells().noneMatch(x-> x.getPiece() == null);
+        for (int i=0;i<6;i++){
+            if(board.getRow(i).anyMatch(x-> x.getPiece() == null)){return false;}
+        }
+        return true;
     }
 }

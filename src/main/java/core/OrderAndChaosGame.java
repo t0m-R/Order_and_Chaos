@@ -4,7 +4,6 @@ import UI.Console.DisplayBoard;
 import UI.Messages;
 import core.Entities.*;
 import core.Rules.ChaosWinRule;
-import core.Rules.EmptyCellRule;
 import core.Rules.OrderWinRule;
 
 import java.awt.*;

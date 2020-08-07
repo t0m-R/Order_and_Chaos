@@ -40,22 +40,22 @@ public class OrderWinRule implements Rule{
 
     public boolean checkLeftDiags(Board board, Piece p){
         boolean winner = false;
-        Supplier<Stream<Cell>> cells = () -> board.getLeftDiag(0,0);
+        Supplier<Stream<Cell>> cells = board::getLeftDiag;
         winner = isWinner(p, winner, cells);
-        cells = () -> board.getLeftDiag(1, 0);
+        cells = board::getLeftDiagUpper;
         winner = isWinner(p, winner, cells);
-        cells = () -> board.getLeftDiag(0,1);
+        cells = board::getLeftDiagLower;
         winner = isWinner(p, winner, cells);
         return winner;
     }
 
     public boolean checkRightDiags(Board board, Piece p){
         boolean winner = false;
-        Supplier<Stream<Cell>> cells = () -> board.getRightDiag(0,0);
+        Supplier<Stream<Cell>> cells = board::getRightDiag;
         winner = isWinner(p, winner, cells);
-        cells = () -> board.getRightDiag(1, 0);
+        cells = board::getRightDiagUpper;
         winner = isWinner(p, winner, cells);
-        cells = () -> board.getRightDiag(0,1);
+        cells = board::getRightDiagLower;
         winner = isWinner(p, winner, cells);
         return winner;
     }
