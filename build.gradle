@@ -3,6 +3,12 @@ plugins {
     id 'application'
 }
 
+task(OrderAndChaos, type: JavaExec) {
+    main = 'core.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+}
+
 group 'org.example'
 version '1.0-SNAPSHOT'
 

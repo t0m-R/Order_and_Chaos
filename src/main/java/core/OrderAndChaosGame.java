@@ -21,6 +21,7 @@ public class OrderAndChaosGame {
 
     public void playGame(){
         System.out.println(Messages.greetings);
+        DisplayBoard.showBoard(gameState.getBoard());
         while (!checkWinConditions()){
             makeTurn();
             DisplayBoard.showBoard(gameState.getBoard());
