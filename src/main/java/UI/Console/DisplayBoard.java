@@ -1,7 +1,10 @@
 package UI.Console;
 
+import UI.Messages;
 import core.Entities.Board;
 import core.Entities.Cell;
+import core.Entities.Player;
+
 import java.awt.Point;
 import java.util.stream.IntStream;
 
@@ -27,5 +30,9 @@ public class DisplayBoard {
         System.out.print("\n\t");
         IntStream.range(0, board.getSize()).forEach(i -> System.out.print(padLeft(i + " ")));
         System.out.println("\n");
+    }
+
+    public static void displayPlayer(Player player) {
+        System.out.println("It's your turn " + player.getName());
     }
 }

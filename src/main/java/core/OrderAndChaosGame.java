@@ -2,10 +2,7 @@ package core;
 
 import UI.Console.DisplayBoard;
 import UI.Messages;
-import core.Entities.Board;
-import core.Entities.Piece;
-import core.Entities.Rulebook;
-import core.Entities.StateManager;
+import core.Entities.*;
 import core.Rules.ChaosWinRule;
 import core.Rules.OrderWinRule;
 
@@ -43,7 +40,8 @@ public class OrderAndChaosGame {
     }
 
     private void makeTurn(){
-        System.out.println("New turn");
+        //System.out.println("New turn");
+        DisplayBoard.displayPlayer(gameState.getPlayer());
         gameState.newTurn(getPoint(gameState.getBoard()), getPiece());
     }
 
