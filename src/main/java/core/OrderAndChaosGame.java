@@ -4,6 +4,7 @@ import UI.Console.DisplayBoard;
 import UI.Messages;
 import core.Entities.*;
 import core.Rules.ChaosWinRule;
+import core.Rules.EmptyCellRule;
 import core.Rules.OrderWinRule;
 
 import java.awt.*;
@@ -50,7 +51,7 @@ public class OrderAndChaosGame {
         int x = getInt();
         System.out.println("Select y coordinate:");
         int y = getInt();
-        if (board.isValid(new Point(x,y))){
+        if (board.isValid(new Point(x,y)) && board.getCell(new Point(x,y)).getPiece() == null){
             return new Point(x,y);
         }
         else{
