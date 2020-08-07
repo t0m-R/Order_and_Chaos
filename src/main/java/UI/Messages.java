@@ -32,7 +32,7 @@ public class Messages {
             "\\ \\_/ / |\\ \\| |/ /| |___| |\\ \\   \\ V  V /| | | | \\__ \\ |_|\n"+
             " \\___/\\_| \\_|___/ \\____/\\_| \\_|   \\_/\\_/ |_|_| |_|___/ (_)\n";
 
-    public final static String wrongPoint ="Illegal point. Coordinates should be between 0 and 5. Try again";
+    public final static String wrongPoint ="Illegal point. Coordinates should be between 0 and 5. You cannot overwrite points. Try again";
 
     public final static String wrongPiece ="Illegal piece. Only 'x' or 'o' are valid.Try again";
 

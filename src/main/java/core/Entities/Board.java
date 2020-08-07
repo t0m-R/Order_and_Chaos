@@ -46,11 +46,11 @@ public class Board implements Iterable<Cell>{
     }
 
     public Stream<Cell> getRightDiagUpper(){
-        return range(1,board.length-1).mapToObj(i -> board[i][board.length-i]);
+        return range(1,board.length).mapToObj(i -> board[i][board.length-i]);
     }
 
     public Stream<Cell> getRightDiagLower(){
-        return range(0,board.length-2).mapToObj(i -> board[i][board.length-i-2]);
+        return range(0,board.length-1).mapToObj(i -> board[i][board.length-i-2]);
     }
 
     public Stream<Cell> getLeftDiag(){
