@@ -31,4 +31,19 @@ public class Messages {
             "| | | |    /| | | |  __||    /  \\ \\ /\\ / / | '_ \\/ __| | |\n"+
             "\\ \\_/ / |\\ \\| |/ /| |___| |\\ \\   \\ V  V /| | | | \\__ \\ |_|\n"+
             " \\___/\\_| \\_|___/ \\____/\\_| \\_|   \\_/\\_/ |_|_| |_|___/ (_)\n";
+
+    public final static String wrongPoint ="Illegal point. Coordinates should be between 0 and 5. Try again";
+
+    public final static String wrongPiece ="Illegal piece. Only 'x' or 'o' are valid.Try again";
+
+    public final static String wrongInt ="Not a integer. Try again";
+
+    public final static String pointX = "Select X coordinate for new point:";
+
+    public final static String pointY = "Select Y coordinate for new point:";
+
+    public final static String selectPiece = "Select your piece:";
+
+    private Messages() {}
+
 }

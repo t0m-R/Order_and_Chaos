@@ -41,27 +41,26 @@ public class OrderAndChaosGame {
     }
 
     private void makeTurn(){
-        //System.out.println("New turn");
         DisplayBoard.displayPlayer(gameState.getPlayer());
         gameState.newTurn(getPoint(gameState.getBoard()), getPiece());
     }
 
     private static Point getPoint(Board board){
-        System.out.println("Select x coordinate:");
+        System.out.println(Messages.pointX);
         int x = getInt();
-        System.out.println("Select y coordinate:");
+        System.out.println(Messages.pointY);
         int y = getInt();
         if (board.isValid(new Point(x,y)) && board.getCell(new Point(x,y)).getPiece() == null){
             return new Point(x,y);
         }
         else{
-            System.out.println("Illegal point. Try again");
+            System.out.println(Messages.wrongPoint);
             return getPoint(board);
         }
     }
 
     private static Piece getPiece(){
-        System.out.println("Select your piece:");
+        System.out.println(Messages.selectPiece);
         char piece = sc.next().charAt(0);
         if (piece == 'x'){
             return Piece.x;
@@ -70,7 +69,7 @@ public class OrderAndChaosGame {
             return Piece.o;
         }
         else{
-            System.out.println("Illegal piece. Try again");
+            System.out.println(Messages.wrongPiece);
             return getPiece();
         }
     }
@@ -78,7 +77,7 @@ public class OrderAndChaosGame {
     private static int getInt(){
         try{ return sc.nextInt(); }
         catch (InputMismatchException e){
-            System.out.println("Not a integer. Try again");
+            System.out.println(Messages.wrongInt);
             sc.next();
             return getInt();
         }
