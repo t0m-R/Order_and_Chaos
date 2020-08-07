@@ -1,5 +1,6 @@
 package core;
 
+import UI.Console.DisplayBoard;
 import core.Entities.Piece;
 import core.Entities.Rulebook;
 import core.Entities.StateManager;
@@ -21,6 +22,7 @@ public class OrderAndChaosGame {
     public void playGame(){
         while (!checkWinConditions()){
             makeTurn();
+            DisplayBoard.showBoard(gameState.getBoard());
         }
     }
 
