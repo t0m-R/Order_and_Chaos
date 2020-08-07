@@ -16,7 +16,7 @@ public class DisplayBoard {
     }
 
     private static void showRow(Board board, int y) {
-        System.out.print(y + "\t");
+        System.out.print(y + " \t");
         IntStream.range(0, board.getSize()).forEach(x -> showCell(board.getCell(new Point(x, y))));
         System.out.println();
     }
@@ -24,7 +24,7 @@ public class DisplayBoard {
     public static void showBoard(Board board) {
         System.out.println();
         IntStream.iterate(board.getSize() - 1, x -> --x).limit(board.getSize()).forEach(y -> showRow(board, y));
-        System.out.print("\t");
+        System.out.print("\n\t");
         IntStream.range(0, board.getSize()).forEach(i -> System.out.print(padLeft(i + " ")));
         System.out.println("\n");
     }
